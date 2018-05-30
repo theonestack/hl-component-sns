@@ -7,6 +7,6 @@ if [ "$(which docker)" == "" ]; then
     fi
     pip install -r requirements.txt -t .
 else
-    docker run --rm -v $PWD:/src -w /src python:3 pip install -r requirements.txt -t /src
+    docker run --rm -v $PWD:/src -w /src python:3.6 pip install -r requirements.txt -t /src
 fi
 

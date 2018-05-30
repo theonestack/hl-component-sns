@@ -20,6 +20,8 @@ lambda_subscribers_default:
           Ref: SlackIncomingWebHook
         slack_username:
           Ref: SlackUsername
+      allowed_sources:
+        - principal: sns.amazonaws.com
 
 use_default_lambda_subscribers: false
 
