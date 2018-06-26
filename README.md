@@ -1,3 +1,5 @@
+![build-status](https://travis-ci.com/theonestack/hl-component-sns.svg?branch=master)
+
 ### SNS Cfhighlander component
 
 - Create SNS topics with subscriptions
@@ -9,6 +11,10 @@
 If you are using default subscription lambdas (at this point only slack), you'll need either
 pip or docker on your path in order to install dependencies. 
 
+
+### Parameters
+
+TBD
 
 ### Configuration
 
@@ -24,6 +30,11 @@ use_default_lambda_subscribers: true
 If this option is enabled, component will have parameters for slack webhook exposed. 
 
 You configure sns topics and possible email/lambda/http destinations
+
+
+### Outputs
+
+TBD
 
 ### Sample Usage
 
@@ -64,3 +75,4 @@ topics:
         endpoint: slackMessage
 
 ```
+
