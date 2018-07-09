@@ -16,13 +16,13 @@ CfhighlanderTemplate do
     if use_default_lambda_subscribers or test
 
       # this is required parameter, webhook url
-      StackParam 'SlackIncomingWebHook', '', noEcho: true
+      ComponentParam 'SlackIncomingWebHook', '', noEcho: true
 
       # if not channel supplied, message will be posted to whatever is configured on the hook
-      StackParam 'SlackChannel', ''
+      ComponentParam 'SlackChannel', ''
 
       # if no username supplied, lambda shall use whatever is configured on the hook
-      StackParam 'SlackUsername', ''
+      ComponentParam 'SlackUsername', ''
     end
   end
 
