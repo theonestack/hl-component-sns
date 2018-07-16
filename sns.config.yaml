@@ -13,6 +13,8 @@ lambda_subscribers_default:
       handler: slack_notify.lambda_handler
       timeout: 10
       runtime: python3.6
+      allowed_sources:
+        - principal: sns.amazonaws.com
       environment:
         slack_channel:
           Ref: SlackChannel
