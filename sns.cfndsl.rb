@@ -1,9 +1,13 @@
 CloudFormation do
 
+  default_tags = external_parameters.fetch(:default_tags, nil)
 
-  if (ENV.key? 'CFHIGHLANDER_SNS_COMPONENT_TEST' and ENV['CFHIGHLANDER_SNS_COMPONENT_TEST'])
-    topics = example_config['topics']
-  end
+  tags = []
+  default_tags.each do |key, value|
+    tags << {Key: key, Value: value}
+  end unless default_tags.nil?
+
+  topics = external_parameters.fetch(:topics, nil)
 
   if (defined? topics and (not topics.nil?))
     topics.each do |key, config|
@@ -18,6 +22,17 @@ CloudFormation do
         if config.key? 'display_name'
           DisplayName config['display_name']
         end
+
+        if config.key? 'content_based_deduplication'
+          ContentBasedDeduplication config['content_based_deduplication']
+        end
+
+        if config.key? 'fifo_topic'
+          FifoTopic config['fifo_topic']
+        end
+
+        Tags tags unless tags.empty?
+
       end
 
       if config.key? 'subscriptions'
@@ -55,7 +70,7 @@ CloudFormation do
     end
   else
     SNS_Topic('DefaultTopic') do
-
+      Tags tags unless tags.empty?
     end
     Output('TopicDefaultArn') do
       Value Ref('DefaultTopic')
