@@ -1,4 +1,4 @@
-![build-status](https://travis-ci.com/theonestack/hl-component-sns.svg?branch=master)
+![cftest](https://github.com/theonestack/hl-component-sns/actions/workflows/rspec.yaml/badge.svg)
 
 ### SNS Cfhighlander component
 
